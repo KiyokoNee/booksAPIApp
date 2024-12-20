@@ -13,6 +13,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -22,13 +23,13 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotNull
+	@NotBlank
 	@Size(min = 5, max = 200)
 	private String title;
-	@NotNull
+	@NotBlank
 	@Size(min = 5, max = 200)
 	private String description;
-	@NotNull
+	@NotBlank
 	@Size(min = 3, max = 40)
 	private String language;
 	@NotNull
