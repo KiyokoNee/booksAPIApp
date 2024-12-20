@@ -1,5 +1,7 @@
 package com.gearing.booksapi.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,15 @@ import com.gearing.booksapi.services.BookService;
 public class BookController {
 	@Autowired
 	private BookService bookservice;
+	
+	@GetMapping("/books")
+	public String showAllBooks(Model model) {
+		List<Book> books = bookservice.allBooks();
+		
+		model.addAttribute("books", books);
+		
+		return "index.jsp";
+	}
 	
 	@GetMapping("/books/{id}")
 	public String showBookById(@PathVariable Long id, Model model) {
