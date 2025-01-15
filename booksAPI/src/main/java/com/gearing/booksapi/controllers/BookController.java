@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.gearing.booksapi.models.Book;
+import com.gearing.booksapi.services.AuthorService;
 import com.gearing.booksapi.services.BookService;
 
 @Controller
 public class BookController {
 	@Autowired
 	private BookService bookservice;
+	@Autowired
+	private AuthorService authorService;
 	
 	@GetMapping("/books")
 	public String showAllBooks(Model model) {
